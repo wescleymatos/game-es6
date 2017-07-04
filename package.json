@@ -1,0 +1,29 @@
+{
+  "name": "game-es6",
+  "version": "1.0.0",
+  "description": "Aprendendo es6 criando um jogo",
+  "main": "game.js",
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel": "babel game.js --watch --out-file app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wescleymatos/game-es6.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wescleymatos/game-es6/issues"
+  },
+  "homepage": "https://github.com/wescleymatos/game-es6#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1"
+  }
+}
