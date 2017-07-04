@@ -26,7 +26,7 @@ heroImage.src = 'images/hero.png';
 monsterImage.addEventListener('load', function () {
     monsterReady = true;
 });
-monsterImage.src = 'images/hero.png';
+monsterImage.src = 'images/monster.png';
 
 
 // Objetos do jogo
@@ -83,3 +83,43 @@ const update = function (modified) {
         reset();
     }
 };
+
+
+// Renderiza tudo
+const render = function () {
+    if (bgReady) {
+        context.drawImage(bgImage, 0, 0);
+    }
+
+    if (heroReady) {
+        context.drawImage(heroImage, hero.x, hero.y);
+    }
+
+    if (monsterReady) {
+        context.drawImage(monsterImage, monster.x, monster.y);
+    }
+
+    // Pontuação
+    context.fillStyle = 'rgb(250, 250, 250)';
+    context.font = '24px Helvetica';
+    context.textAlign = 'left';
+    context.textBaseline = 'top';
+    context.fillText('Pessoas salvas: ' + monsterCount, 32, 32);
+};
+
+// Controla o loop do jogo
+const main = function () {
+    const now = Date.now();
+    const delta = now - then;
+
+    update(delta / 1000);
+    render();
+
+    then = now;
+
+    requestAnimationFrame(main);
+};
+
+let then = Date.now();
+reset();
+main();
